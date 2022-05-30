@@ -99,6 +99,9 @@ textarea {
   padding: 30px;
   justify-content: center;
 }
+.add-btn-wr {
+  padding: 0;
+}
 button {
   width: 100px;
   height: 40px;
@@ -110,9 +113,45 @@ button:active {
   background-color: #aaa;
   border: 2px solid var(--clr-black);
 }
+.delete-btn {
+  background-color: #fca5a5;
+}
+.add-btn {
+  background-color: #93c5fd;
+}
+.edit-btn {
+  background-color: #fdba74;
+}
+.submit-btn {
+  background-color: #86efac;
+}
+.card-footer {
+  margin-top: 30px;
+  border-top: 1px solid var(--clr-black);
+}
 
-
-
+/* Submitted Form */
+.description {
+  font-style: italic;
+  text-align: center;
+}
+.email-phone-wr {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  margin-top: 30px;
+}
+.email-phone-wr > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.email-phone-wr .email, .email-phone-wr .phoneNumber {
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--clr-black);
+  font-size: 0.8rem;
+}
 
 /* FOOTER */
 footer {

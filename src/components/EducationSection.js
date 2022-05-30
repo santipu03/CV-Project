@@ -24,8 +24,8 @@ export default class EducationSection extends React.Component {
           </div>
         </form>
         <div className="btn-wr">
-          <button type="button">Delete</button>
-          <button type="button">Add</button>
+          <button type="button" className="delete-btn">Delete</button>
+          <button type="button" className="add-btn">Add</button>
         </div>
       </section>
     )
