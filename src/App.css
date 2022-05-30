@@ -1,38 +1,126 @@
-.App {
-  text-align: center;
+
+/* VARIABLES */
+:root {
+  --clr-white: #fff;
+  --clr-black: #000;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* GLOBAL STYLES */
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
   min-height: 100vh;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.9rem;
+}
+
+/* HEADER */
+header {
+  height: 80px;
+  background-color: #333;
+  color: var(--clr-white);
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
-.App-link {
-  color: #61dafb;
+/* MAIN */
+main {
+  min-height: calc(100vh - 120px);
+  background-color: #ccc;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card {
+  background-color: #eee;
+  width: 60%;
+  min-height: 380px;
+  border: 1px solid #333;
+  padding: 20px;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
+  border-top: 1px solid var(--clr-black);
+}
+.firstSectionTitle {
+  border: none;
+  margin: 0;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  justify-items: left;
+  gap: 20px;
+}
+
+form > div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  gap: 5px;
+}
+
+input {
+  padding: 5px;
+  font: inherit;
+  border: 1px solid var(--clr-black);
+  outline: none;
+  width: 90%;
+}
+textarea {
+  resize: none;
+  height: 80px;
+  width: 100%;
+  padding: 5px;
+}
+.textarea-wr {
+  grid-column: 1/3;
+  grid-row: 3/5;
+}
+
+.btn-wr {
+  display: flex;
+  gap: 30px;
+  padding: 30px;
+  justify-content: center;
+}
+button {
+  width: 100px;
+  height: 40px;
+  border: 1px solid var(--clr-black);
+  background-color: #ccc;
+  cursor: pointer;
+}
+button:active {
+  background-color: #aaa;
+  border: 2px solid var(--clr-black);
+}
+
+
+
+
+/* FOOTER */
+footer {
+  height: 40px;
+  background-color: #333;
+  color: var(--clr-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
 }
