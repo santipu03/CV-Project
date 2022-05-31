@@ -1,6 +1,7 @@
 import React from "react";
 import EducationItem from "./EducationItem";
 import uniqid from 'uniqid'
+import { Button } from "./Utils/Button";
 
 export default class EducationSection extends React.Component {
   constructor (props) {
@@ -9,7 +10,6 @@ export default class EducationSection extends React.Component {
       education: []
     }
   }
-
 
   handleAddEducation () {
     this.setState(prevState => ({
@@ -41,7 +41,6 @@ export default class EducationSection extends React.Component {
     })
   }
 
-
   render () {
     const educationItems = this.state.education.map(item => (
       <EducationItem
@@ -63,11 +62,12 @@ export default class EducationSection extends React.Component {
           <div className="sectionTitle">Education</div>
           {educationItems}
           <div className="btn-wr add-btn-wr">
-            <button 
+            <Button 
               type="button" 
-              className="add-btn" 
-              onClick={this.handleAddEducation.bind(this)}>
-            Add</button>
+              onClick={this.handleAddEducation.bind(this)}
+              color='#93c5fd'
+              backgroundColor='#60a5fa'>
+            Add</Button>
           </div>
         </section>
       )

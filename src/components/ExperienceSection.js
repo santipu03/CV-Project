@@ -1,6 +1,7 @@
 import React from "react";
 import ExperienceItems from "./ExperienceItems";
 import uniqid from 'uniqid'
+import { Button } from "./Utils/Button";
 
 export default class ExperienceSection extends React.Component {
   constructor (props) {
@@ -61,11 +62,12 @@ export default class ExperienceSection extends React.Component {
           <div className="sectionTitle">Experience</div>
             {experienceItems}
           <div className="btn-wr add-btn-wr">
-            <button 
+            <Button 
               type="button" 
-              className="add-btn" 
-              onClick={this.handleAddExperience.bind(this)}>
-            Add</button>
+              onClick={this.handleAddExperience.bind(this)}
+              color='#93c5fd'
+              backgroundColor='#60a5fa'>
+            Add</Button>
           </div>
   
         </section>

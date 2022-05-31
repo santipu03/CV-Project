@@ -1,5 +1,6 @@
 import React from "react";
 import { format } from "date-fns";
+import { Button } from "./Utils/Button";
 
 
 export default class ExperienceItems extends React.Component {
@@ -52,12 +53,13 @@ export default class ExperienceItems extends React.Component {
             </div>
           </form>
           <div className="btn-wr">
-            <button 
+            <Button 
               type="button" 
-              className="delete-btn" 
               onClick={() => this.props.onDeleteItem(this.props.id)}
+              color='#fca5a5'
+              backgroundColor='#f87171'
             >Delete
-            </button>
+            </Button>
           </div>
         </>
       )

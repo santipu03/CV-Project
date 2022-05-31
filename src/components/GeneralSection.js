@@ -72,7 +72,7 @@ export default class GeneralSection extends React.Component {
             <div className="textarea-wr">
               <label htmlFor="description">Brief Description</label>
               <textarea 
-                placeholder="I am a talented, ambitious and hardworking individual, with broad skills and experience in digital and printed marketing, social media and leading projects." 
+                placeholder="I am a talented, ambitious and hardworking individual, with broad skills and experience in digital and printed marketing." 
                 name="description" 
                 id="description"
                 value={this.state.description}
