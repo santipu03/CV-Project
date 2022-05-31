@@ -18,15 +18,6 @@ export default class Main extends React.Component {
     }))
   }
 
-  handleAddExperience () {
-    console.log('vergotas')
-  }
-
-  handleDeleteExperience () {
-    console.log('delete')
-  }
-
-
   render() {
     return (
       <main>
@@ -35,8 +26,6 @@ export default class Main extends React.Component {
             isSubmitted={this.state.isSubmitted}
           />
           <ExperienceSection 
-            onAddExperience={this.handleAddExperience.bind(this)}
-            onDeleteExperience={this.handleDeleteExperience.bind(this)}
             isSubmitted={this.state.isSubmitted}
           />
           {/*<EducationSection />  */}

@@ -178,3 +178,47 @@ footer {
   justify-content: center;
   font-size: 0.8rem;
 }
+
+
+/* MEDIA QUERIES */
+
+@media (max-width: 1000px) {
+  .card {
+    width: 80%;
+  }
+}
+
+@media (max-width: 700px) {
+  .card {
+    width: 90%;
+  }
+}
+
+@media (max-width: 600px) {
+  form {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+  }
+  form > div {
+    align-items: center;
+  }
+  .textarea-wr {
+    grid-column: 1/2;
+    grid-row: 5/7;
+  }
+  textarea {
+    width: 90%;
+    font: inherit;
+  }
+  .sectionTitle {
+    font-size: 1.3rem;
+  }
+  body {
+    font-size: 0.7rem;
+  }
+  button {
+    font: inherit;
+    width: 70px;
+    height: 25px;
+  }
+}
