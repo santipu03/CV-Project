@@ -1,6 +1,7 @@
 import React from "react";
 import format from "date-fns/format";
 import { Button } from "./Utils/Button";
+import { Input } from "./Utils/Input";
 
 export default class EducationItem extends React.Component {
   render () {
@@ -10,45 +11,41 @@ export default class EducationItem extends React.Component {
           <form>
             <div>
               <label htmlFor="schoolName">School Name</label>
-              <input 
+              <Input 
                 type={"text"} 
                 placeholder="Yale University" 
-                name="schoolName" 
                 id="schoolName"
                 value={this.props.schoolName}
                 onChange={(e) => this.props.onInputChange(e,this.props.id)}>
-              </input>
+              </Input>
             </div>
             <div>
               <label htmlFor="degree">Position Title</label>
-              <input 
+              <Input 
                 type={"text"} 
                 placeholder="Software Engineering" 
-                name="degree" 
                 id="degree"
                 value={this.props.degree}
                 onChange={(e) => this.props.onInputChange(e,this.props.id)}>  
-              </input>
+              </Input>
             </div>
             <div>
               <label htmlFor="firstDayDegree">From:</label>
-              <input 
+              <Input 
                 type={"month"} 
-                name="firstDayDegree" 
                 id="firstDayDegree"
                 value={this.props.firstDayDegree}
                 onChange={(e) => this.props.onInputChange(e,this.props.id)}>
-              </input>
+              </Input>
             </div>
             <div>
               <label htmlFor="lastDayDegree">To:</label>
-              <input 
+              <Input 
                 type={"month"} 
-                name="lastDayDegree" 
                 id="lastDayDegree"
                 value={this.props.lastDayDegree}
                 onChange={(e) => this.props.onInputChange(e,this.props.id)}>
-              </input>
+              </Input>
             </div>
           </form>
           <div className="btn-wr">

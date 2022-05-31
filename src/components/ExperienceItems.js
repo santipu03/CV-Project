@@ -1,7 +1,7 @@
 import React from "react";
 import { format } from "date-fns";
 import { Button } from "./Utils/Button";
-
+import { Input } from "./Utils/Input";
 
 export default class ExperienceItems extends React.Component {
   render () {
@@ -11,45 +11,41 @@ export default class ExperienceItems extends React.Component {
         <form>
             <div>
               <label htmlFor="companyName">Company Name</label>
-              <input 
+              <Input 
                 type={"text"} 
                 placeholder="Microsoft" 
-                name="companyName" 
                 id="companyName"
                 value={this.props.companyName}
                 onChange={(e) => this.props.onInputChange(e,this.props.id)}>
-              </input>
+              </Input>
             </div>
             <div>
               <label htmlFor="companyPosition">Position Title</label>
-              <input 
+              <Input 
                 type={"text"} 
                 placeholder="Senior Developer" 
-                name="companyPosition" 
                 id="companyPosition"
                 value={this.props.companyPosition}
                 onChange={(e) => this.props.onInputChange(e,this.props.id)}>
-              </input>
+              </Input>
             </div>
             <div>
               <label htmlFor="firstDayJob">From:</label>
-              <input 
+              <Input 
                 type={"month"} 
-                name="firstDayJob" 
                 id="firstDayJob"
                 value={this.props.firstDayJob}
                 onChange={(e) => this.props.onInputChange(e,this.props.id)}>
-              </input>
+              </Input>
             </div>
             <div>
               <label htmlFor="lastDayJob">To:</label>
-              <input 
+              <Input 
                 type={"month"} 
-                name="lastDayJob" 
                 id="lastDayJob"
                 value={this.props.lastDayJob}
                 onChange={(e) => this.props.onInputChange(e,this.props.id)}>
-              </input>
+              </Input>
             </div>
           </form>
           <div className="btn-wr">

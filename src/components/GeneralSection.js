@@ -1,4 +1,5 @@
 import React from "react";
+import { Input, Textarea } from "./Utils/Input";
 
 export default class GeneralSection extends React.Component {
   constructor (props) {
@@ -27,57 +28,53 @@ export default class GeneralSection extends React.Component {
           <form>
             <div>
               <label htmlFor="firstName">First Name</label>
-              <input 
-                type={"text"} 
+              <Input 
+                type="text"
                 placeholder="Adam" 
-                name="firstName" 
                 id="firstName" 
                 value={this.state.firstName}
                 onChange={this.handleChangeInput.bind(this)}>
-              </input>
+              </Input>
             </div>
             <div>
               <label htmlFor="lastName">Last Name</label>
-              <input 
+              <Input 
                 type={"text"} 
                 placeholder="Smith" 
-                name="lastName" 
                 id="lastName"
                 value={this.state.lastName}
                 onChange={this.handleChangeInput.bind(this)}>
-              </input>
+              </Input>
             </div>
             <div>
               <label htmlFor="email">Email</label>
-              <input 
+              <Input 
                 type={"email"} 
                 placeholder="adamsmith@gmail.com" 
-                name="email" 
                 id="email"
                 value={this.state.email}
                 onChange={this.handleChangeInput.bind(this)}>
-              </input>
+              </Input>
             </div>
             <div>
               <label htmlFor="phoneNumber">Phone Number</label>
-              <input 
+              <Input 
                 type={"number"} 
                 placeholder="686354264" 
-                name="phoneNumber" 
                 id="phoneNumber"
                 value={this.state.phoneNumber}
                 onChange={this.handleChangeInput.bind(this)}>
-              </input>
+              </Input>
             </div>
             <div className="textarea-wr">
               <label htmlFor="description">Brief Description</label>
-              <textarea 
+              <Textarea 
                 placeholder="I am a talented, ambitious and hardworking individual, with broad skills and experience in digital and printed marketing." 
                 name="description" 
                 id="description"
                 value={this.state.description}
                 onChange={this.handleChangeInput.bind(this)}>
-                </textarea>
+                </Textarea>
             </div>
           </form>
         </section>
