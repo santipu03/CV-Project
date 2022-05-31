@@ -152,6 +152,18 @@ button:active {
   border-bottom: 1px solid var(--clr-black);
   font-size: 0.8rem;
 }
+.submittedExperienceItem {
+  padding: 20px 40px;
+  margin: 10px 40px;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid var(--clr-black);
+}
+.position-company {
+  text-align: right;
+}
+
+
 
 /* FOOTER */
 footer {

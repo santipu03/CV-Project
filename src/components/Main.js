@@ -37,6 +37,7 @@ export default class Main extends React.Component {
           <ExperienceSection 
             onAddExperience={this.handleAddExperience.bind(this)}
             onDeleteExperience={this.handleDeleteExperience.bind(this)}
+            isSubmitted={this.state.isSubmitted}
           />
           {/*<EducationSection />  */}
           <CardFooter 
