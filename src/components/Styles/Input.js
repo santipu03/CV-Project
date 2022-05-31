@@ -16,4 +16,8 @@ export const Textarea = styled.textarea`
   padding: 5px;
   border: 1px solid #000;
   outline: none;
+  @media (max-width: 600px) {
+    width: 90%;
+    font: inherit;
+  }
 `

@@ -1,7 +1,9 @@
 import React from "react";
 import EducationItem from "./EducationItem";
 import uniqid from 'uniqid'
-import { Button } from "./Utils/Button";
+import { Button } from "./Styles/Button";
+import { SectionTitle } from "./Styles/SectionTitle";
+import styled from "styled-components";
 
 export default class EducationSection extends React.Component {
   constructor (props) {
@@ -59,25 +61,31 @@ export default class EducationSection extends React.Component {
     if (!this.props.isSubmitted){
       return (
         <section>
-          <div className="sectionTitle">Education</div>
+          <SectionTitle>Education</SectionTitle>
           {educationItems}
-          <div className="btn-wr add-btn-wr">
+          <ButtonWrapper>
             <Button 
               type="button" 
               onClick={this.handleAddEducation.bind(this)}
               color='#93c5fd'
               backgroundColor='#60a5fa'>
             Add</Button>
-          </div>
+          </ButtonWrapper>
         </section>
       )
     } else {
       return (
         <section>
-          <div className="sectionTitle">Education</div>
+          <SectionTitle>Education</SectionTitle>
           {educationItems}
         </section>
       )
     }
   }
 }
+
+const ButtonWrapper = styled.div`
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+`

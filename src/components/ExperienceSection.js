@@ -1,7 +1,10 @@
 import React from "react";
 import ExperienceItems from "./ExperienceItems";
 import uniqid from 'uniqid'
-import { Button } from "./Utils/Button";
+import { Button } from "./Styles/Button";
+import { SectionTitle } from "./Styles/SectionTitle";
+import styled from "styled-components";
+
 
 export default class ExperienceSection extends React.Component {
   constructor (props) {
@@ -59,26 +62,32 @@ export default class ExperienceSection extends React.Component {
     if (!this.props.isSubmitted) {
       return (
         <section>
-          <div className="sectionTitle">Experience</div>
+          <SectionTitle>Experience</SectionTitle>
             {experienceItems}
-          <div className="btn-wr add-btn-wr">
+          <ButtonWrapper>
             <Button 
               type="button" 
               onClick={this.handleAddExperience.bind(this)}
               color='#93c5fd'
               backgroundColor='#60a5fa'>
             Add</Button>
-          </div>
+          </ButtonWrapper>
   
         </section>
       )
     } else {
       return (
         <section>
-          <div className="sectionTitle">Experience</div>
+          <SectionTitle>Experience</SectionTitle>
             {experienceItems}
         </section>
       )
     }
   }
 }
+
+const ButtonWrapper = styled.div`
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+`

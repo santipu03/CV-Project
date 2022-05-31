@@ -1,5 +1,7 @@
 import React from "react";
-import { Input, Textarea } from "./Utils/Input";
+import { Form } from "./Styles/Form";
+import { Input, Textarea } from "./Styles/Input";
+import styled from 'styled-components'
 
 export default class GeneralSection extends React.Component {
   constructor (props) {
@@ -24,8 +26,8 @@ export default class GeneralSection extends React.Component {
     if (!this.props.isSubmitted){
       return (
         <section>
-          <div className="sectionTitle firstSectionTitle">General Information</div>
-          <form>
+          <FirstSectionTitle>General Information</FirstSectionTitle>
+          <Form>
             <div>
               <label htmlFor="firstName">First Name</label>
               <Input 
@@ -66,7 +68,7 @@ export default class GeneralSection extends React.Component {
                 onChange={this.handleChangeInput.bind(this)}>
               </Input>
             </div>
-            <div className="textarea-wr">
+            <TextAreaWrapper>
               <label htmlFor="description">Brief Description</label>
               <Textarea 
                 placeholder="I am a talented, ambitious and hardworking individual, with broad skills and experience in digital and printed marketing." 
@@ -75,17 +77,17 @@ export default class GeneralSection extends React.Component {
                 value={this.state.description}
                 onChange={this.handleChangeInput.bind(this)}>
                 </Textarea>
-            </div>
-          </form>
+            </TextAreaWrapper>
+          </Form>
         </section>
       )
     } else {
       return (
         <section>
-          <div className="sectionTitle firstSectionTitle">{this.state.firstName} {this.state.lastName}</div>
+          <FirstSectionTitle>{this.state.firstName} {this.state.lastName}</FirstSectionTitle>
           <article>
-            <div className="description">"{this.state.description}"</div>
-            <div className="email-phone-wr">
+            <DescriptionWrapper>"{this.state.description}"</DescriptionWrapper>
+            <EmailPhoneWrapper>
               <div>
                 <div className="email">Email</div>
                 <div>{this.state.email}</div>
@@ -94,7 +96,7 @@ export default class GeneralSection extends React.Component {
                 <div className="phoneNumber">Phone Number</div>
                 <div>{this.state.phoneNumber}</div>
               </div>
-            </div>
+            </EmailPhoneWrapper>
             
           </article>
         </section>
@@ -103,3 +105,56 @@ export default class GeneralSection extends React.Component {
     
   }
 }
+
+const FirstSectionTitle = styled.div`
+  border: none;
+  margin: 0;
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: capitalize;
+  text-align: center;
+  padding: 20px 0;
+`
+
+const TextAreaWrapper = styled.div`
+  grid-column: 1/3;
+  grid-row: 3/5;
+
+  @media (max-width: 600px) {
+    grid-column: 1/2;
+    grid-row: 5/7;
+  }
+`
+
+const DescriptionWrapper = styled.div`
+  font-style: italic;
+  text-align: center;
+`
+
+const EmailPhoneWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  margin-top: 30px;
+
+
+  @media (max-width: 800px) {
+    gap: 50px
+  }
+  @media (max-width: 500px) {
+    gap: 20px
+  }
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  & .email, & .phoneNumber {
+    padding-bottom: 5px;
+    border-bottom: 1px solid #000;
+    font-size: 0.8rem;
+  }
+`

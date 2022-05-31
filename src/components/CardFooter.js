@@ -1,22 +1,23 @@
 import React from "react";
-import { Button } from "./Utils/Button";
+import { Button } from "./Styles/Button";
+import styled from "styled-components";
 
 export default class CardFooter extends React.Component {
   render () {
     if (this.props.isSubmitted) {
       return (
-        <div className="btn-wr card-footer">
+        <ButtonWrapper>
           <Button 
             type="button" 
             onClick={this.props.onSubmitBtn}
             color='#fdba74'
             backgroundColor='#fb923c'
           >Edit</Button>
-        </div>
+        </ButtonWrapper>
       )
     } else {
       return (
-        <div className="btn-wr card-footer">
+        <ButtonWrapper>
           <Button 
             type="button" 
             onClick={this.props.onSubmitBtn}
@@ -24,8 +25,17 @@ export default class CardFooter extends React.Component {
             backgroundColor='#4ade80'
           >Submit
           </Button>     
-        </div>
+        </ButtonWrapper>
       )
     }
   }
 }
+
+const ButtonWrapper = styled.div`
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  padding: 30px;
+  margin-top: 30px;
+  border-top: 1px solid #000;
+`

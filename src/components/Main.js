@@ -3,6 +3,8 @@ import GeneralSection from "./GeneralSection";
 import ExperienceSection from "./ExperienceSection";
 import EducationSection from "./EducationSection";
 import CardFooter from "./CardFooter";
+import { Card } from "./Styles/Card";
+import { MainContainer } from "./Styles/MainContainer";
 
 export default class Main extends React.Component {
   constructor (props) {
@@ -20,8 +22,8 @@ export default class Main extends React.Component {
 
   render() {
     return (
-      <main>
-        <div className="card">
+      <MainContainer>
+        <Card>
           <GeneralSection 
             isSubmitted={this.state.isSubmitted}
           />
@@ -35,8 +37,8 @@ export default class Main extends React.Component {
             onSubmitBtn={this.handleSubmit.bind(this)}
             isSubmitted={this.state.isSubmitted}
           />
-        </div>
-      </main>
+        </Card>
+      </MainContainer>
     )
   }
 }

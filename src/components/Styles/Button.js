@@ -9,6 +9,12 @@ export const Button = styled.button`
   cursor: pointer;
   font: inherit;
 
+  @media (max-width: 600px) {
+    font: inherit;
+    width: 70px;
+    height: 25px;
+  }
+
   &:active {
   background-color: ${(props) => props.backgroundColor};
   border: 2px solid black;
