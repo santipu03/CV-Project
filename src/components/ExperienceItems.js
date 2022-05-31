@@ -61,7 +61,8 @@ export default class ExperienceItems extends React.Component {
           </div>
         </>
       )
-    } else {
+    } else if (this.props.isSubmitted && this.props.firstDayJob && this.props.lastDayJob){
+      // The date prop has to have some value so date-fns library don't throw errors
       return(
         <article className="submittedExperienceItem">
           <div><strong>
@@ -73,8 +74,20 @@ export default class ExperienceItems extends React.Component {
             <div>{this.props.companyName}</div>
           </div>
         </article>
+      ) 
+    } else {
+      // If the date prop has no value, return 'Date'
+      return(
+        <article className="submittedExperienceItem">
+          <div><strong>
+            Date -&nbsp; Date
+          </strong></div>
+          <div className="position-company">
+            <div><strong>{this.props.companyPosition}</strong></div>
+            <div>{this.props.companyName}</div>
+          </div>
+        </article>
       )
-      
     }
     
   }

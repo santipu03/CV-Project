@@ -57,6 +57,9 @@ main {
 .firstSectionTitle {
   border: none;
   margin: 0;
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: capitalize;
 }
 
 form {

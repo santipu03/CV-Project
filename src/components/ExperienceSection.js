@@ -6,13 +6,7 @@ export default class ExperienceSection extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      experience: [{
-        id: uniqid(),
-        companyName: '',
-        companyPosition: '',
-        firstDayJob: '',
-        lastDayJob: ''
-      }],
+      experience: []
     }
   }
 
@@ -84,7 +78,5 @@ export default class ExperienceSection extends React.Component {
         </section>
       )
     }
-
-    
   }
 }
