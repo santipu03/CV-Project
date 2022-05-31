@@ -64,7 +64,7 @@ export default class ExperienceItems extends React.Component {
     } else if (this.props.isSubmitted && this.props.firstDayJob && this.props.lastDayJob){
       // The date prop has to have some value so date-fns library don't throw errors
       return(
-        <article className="submittedExperienceItem">
+        <article className="submittedItem">
           <div><strong>
             {format(new Date(this.props.firstDayJob), 'MMM yyyy')} -&nbsp;
             {format(new Date(this.props.lastDayJob), 'MMM yyyy')}
@@ -78,7 +78,7 @@ export default class ExperienceItems extends React.Component {
     } else {
       // If the date prop has no value, return 'Date'
       return(
-        <article className="submittedExperienceItem">
+        <article className="submittedItem">
           <div><strong>
             Date -&nbsp; Date
           </strong></div>

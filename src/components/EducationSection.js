@@ -1,33 +1,83 @@
 import React from "react";
+import EducationItem from "./EducationItem";
+import uniqid from 'uniqid'
 
 export default class EducationSection extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      education: []
+    }
+  }
+
+
+  handleAddEducation () {
+    this.setState(prevState => ({
+      education: [...prevState.education, {
+        id: uniqid(),
+        schoolName: '',
+        degree: '',
+        firstDayDegree: '',
+        lastDayDegree: ''
+      }]
+    }))
+  }
+
+  handleDeleteEducation (id) {
+    this.setState(prevState => ({
+      education: prevState.education.filter(item => item.id !== id)
+    }))
+  }
+
+  handleInputChange (e, id) {
+    this.setState(prevState => {
+      const newArray = prevState.education.map(item => {
+        if (item.id === id) {
+          return {...item, [e.target.id]: e.target.value}
+        }
+        return item
+      })
+      return {...prevState, education: [...newArray]}
+    })
+  }
+
+
   render () {
-    return (
-      <section>
-        <div className="sectionTitle">Education</div>
-        <form>
-          <div>
-            <label htmlFor="schoolName">School Name</label>
-            <input type={"text"} placeholder="Yale University" name="schoolName" id="schoolName"></input>
+    const educationItems = this.state.education.map(item => (
+      <EducationItem
+        key={item.id}
+        id={item.id}
+        schoolName={item.schoolName}
+        degree={item.degree}
+        firstDayDegree={item.firstDayDegree}
+        lastDayDegree={item.lastDayDegree}
+        isSubmitted={this.props.isSubmitted}
+        onInputChange={this.handleInputChange.bind(this)}
+        onDeleteItem={this.handleDeleteEducation.bind(this)}
+      />
+    ))
+
+    if (!this.props.isSubmitted){
+      return (
+        <section>
+          <div className="sectionTitle">Education</div>
+          {educationItems}
+          <div className="btn-wr add-btn-wr">
+            <button 
+              type="button" 
+              className="add-btn" 
+              onClick={this.handleAddEducation.bind(this)}>
+            Add</button>
           </div>
-          <div>
-            <label htmlFor="degree">Position Title</label>
-            <input type={"text"} placeholder="Software Engineering" name="degree" id="degree"></input>
-          </div>
-          <div>
-            <label htmlFor="firstDayDegree">From:</label>
-            <input type={"date"} name="firstDayDegree" id="firstDayDegree"></input>
-          </div>
-          <div>
-            <label htmlFor="lastDayDegree">To:</label>
-            <input type={"date"} name="lastDayDegree" id="lastDayDegree"></input>
-          </div>
-        </form>
-        <div className="btn-wr">
-          <button type="button" className="delete-btn">Delete</button>
-          <button type="button" className="add-btn">Add</button>
-        </div>
-      </section>
-    )
+        </section>
+      )
+    } else {
+      return (
+        <section>
+          <div className="sectionTitle">Education</div>
+          {educationItems}
+        </section>
+      )
+    }
   }
 }

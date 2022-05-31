@@ -1,7 +1,7 @@
 import React from "react";
 import GeneralSection from "./GeneralSection";
 import ExperienceSection from "./ExperienceSection";
-//import EducationSection from "./EducationSection";
+import EducationSection from "./EducationSection";
 import CardFooter from "./CardFooter";
 
 export default class Main extends React.Component {
@@ -28,7 +28,9 @@ export default class Main extends React.Component {
           <ExperienceSection 
             isSubmitted={this.state.isSubmitted}
           />
-          {/*<EducationSection />  */}
+          <EducationSection 
+            isSubmitted={this.state.isSubmitted}
+          />
           <CardFooter 
             onSubmitBtn={this.handleSubmit.bind(this)}
             isSubmitted={this.state.isSubmitted}
