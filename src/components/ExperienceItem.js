@@ -5,7 +5,7 @@ import { Input } from './Styles/Input.style'
 import { Form } from './Styles/Form.style'
 import styled from 'styled-components'
 
-export default function ExperienceItems (props) {
+export default function ExperienceItem (props) {
   if (!props.isSubmitted) {
     return (
       <>
