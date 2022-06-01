@@ -1,110 +1,104 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Form } from './Styles/Form.style'
 import { Input, Textarea } from './Styles/Input.style'
 import styled from 'styled-components'
 
-export default class GeneralSection extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      firstName: '',
-      lastName: '',
-      email: '',
-      phoneNumber: '',
-      description: ''
-    }
-  }
+export default function GeneralSection (props) {
+  const [generalData, setGeneralData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phoneNumber: '',
+    description: ''
+  })
 
-  handleChangeInput (e) {
-    // the id of the inputs are the same as the properties of state
-    this.setState({
+  const handleChangeInput = (e) => {
+    setGeneralData(prevState => ({
+      ...prevState,
       [e.target.id]: e.target.value
-    })
+    }))
   }
 
-  render () {
-    if (!this.props.isSubmitted) {
-      return (
-        <section>
-          <FirstSectionTitle>General Information</FirstSectionTitle>
-          <Form>
+  if (!props.isSubmitted) {
+    return (
+      <section>
+        <FirstSectionTitle>General Information</FirstSectionTitle>
+        <Form>
+          <div>
+            <label htmlFor="firstName">First Name</label>
+            <Input
+              type="text"
+              placeholder="Adam"
+              id="firstName"
+              value={generalData.firstName}
+              onChange={handleChangeInput}
+            ></Input>
+          </div>
+          <div>
+            <label htmlFor="lastName">Last Name</label>
+            <Input
+              type={'text'}
+              placeholder="Smith"
+              id="lastName"
+              value={generalData.lastName}
+              onChange={handleChangeInput}
+            ></Input>
+          </div>
+          <div>
+            <label htmlFor="email">Email</label>
+            <Input
+              type={'email'}
+              placeholder="adamsmith@gmail.com"
+              id="email"
+              value={generalData.email}
+              onChange={handleChangeInput}
+            ></Input>
+          </div>
+          <div>
+            <label htmlFor="phoneNumber">Phone Number</label>
+            <Input
+              type={'number'}
+              placeholder="686354264"
+              id="phoneNumber"
+              value={generalData.phoneNumber}
+              onChange={handleChangeInput}
+            ></Input>
+          </div>
+          <TextAreaWrapper>
+            <label htmlFor="description">Brief Description</label>
+            <Textarea
+              placeholder="I am a talented, ambitious and hardworking individual, with broad skills and experience in digital and printed marketing."
+              id="description"
+              value={generalData.description}
+              onChange={handleChangeInput}
+            ></Textarea>
+          </TextAreaWrapper>
+        </Form>
+      </section>
+    )
+  } else {
+    return (
+      <section>
+        <FirstSectionTitle>
+          {generalData.firstName} {generalData.lastName}
+        </FirstSectionTitle>
+        <article>
+          <DescriptionWrapper>
+            &quot;{generalData.description}&quot;
+          </DescriptionWrapper>
+          <EmailPhoneWrapper>
             <div>
-              <label htmlFor="firstName">First Name</label>
-              <Input
-                type="text"
-                placeholder="Adam"
-                id="firstName"
-                value={this.state.firstName}
-                onChange={this.handleChangeInput.bind(this)}
-              ></Input>
+              <div className="email">Email</div>
+              <div>{generalData.email}</div>
             </div>
             <div>
-              <label htmlFor="lastName">Last Name</label>
-              <Input
-                type={'text'}
-                placeholder="Smith"
-                id="lastName"
-                value={this.state.lastName}
-                onChange={this.handleChangeInput.bind(this)}
-              ></Input>
+              <div className="phoneNumber">Phone Number</div>
+              <div>{generalData.phoneNumber}</div>
             </div>
-            <div>
-              <label htmlFor="email">Email</label>
-              <Input
-                type={'email'}
-                placeholder="adamsmith@gmail.com"
-                id="email"
-                value={this.state.email}
-                onChange={this.handleChangeInput.bind(this)}
-              ></Input>
-            </div>
-            <div>
-              <label htmlFor="phoneNumber">Phone Number</label>
-              <Input
-                type={'number'}
-                placeholder="686354264"
-                id="phoneNumber"
-                value={this.state.phoneNumber}
-                onChange={this.handleChangeInput.bind(this)}
-              ></Input>
-            </div>
-            <TextAreaWrapper>
-              <label htmlFor="description">Brief Description</label>
-              <Textarea
-                placeholder="I am a talented, ambitious and hardworking individual, with broad skills and experience in digital and printed marketing."
-                name="description"
-                id="description"
-                value={this.state.description}
-                onChange={this.handleChangeInput.bind(this)}
-              ></Textarea>
-            </TextAreaWrapper>
-          </Form>
-        </section>
-      )
-    } else {
-      return (
-        <section>
-          <FirstSectionTitle>
-            {this.state.firstName} {this.state.lastName}
-          </FirstSectionTitle>
-          <article>
-            <DescriptionWrapper>
-              &quot;{this.state.description}&quot;
-            </DescriptionWrapper>
-            <EmailPhoneWrapper>
-              <div>
-                <div className="email">Email</div>
-                <div>{this.state.email}</div>
-              </div>
-              <div>
-                <div className="phoneNumber">Phone Number</div>
-                <div>{this.state.phoneNumber}</div>
-              </div>
-            </EmailPhoneWrapper>
-          </article>
-        </section>
-      )
-    }
+          </EmailPhoneWrapper>
+        </article>
+      </section>
+    )
   }
 }
 

@@ -20,7 +20,7 @@ export default function Main (props) {
         <ExperienceSection isSubmitted={isSubmitted} />
         <EducationSection isSubmitted={isSubmitted} />
         <CardFooter
-          onSubmitBtn={handleSubmit.bind(this)}
+          onSubmitBtn={handleSubmit}
           isSubmitted={isSubmitted}
         />
       </Card>
