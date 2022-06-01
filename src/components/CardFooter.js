@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "./Styles/Button";
+import { Button } from "./Styles/Button.style"
 import styled from "styled-components";
 
 export default class CardFooter extends React.Component {

@@ -3,8 +3,8 @@ import GeneralSection from "./GeneralSection";
 import ExperienceSection from "./ExperienceSection";
 import EducationSection from "./EducationSection";
 import CardFooter from "./CardFooter";
-import { Card } from "./Styles/Card";
-import { MainContainer } from "./Styles/MainContainer";
+import { Card } from "./Styles/Card.style";
+import { MainContainer } from "./Styles/MainContainer.style";
 
 export default class Main extends React.Component {
   constructor (props) {

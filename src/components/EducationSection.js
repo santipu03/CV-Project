@@ -1,8 +1,8 @@
 import React from "react";
 import EducationItem from "./EducationItem";
 import uniqid from 'uniqid'
-import { Button } from "./Styles/Button";
-import { SectionTitle } from "./Styles/SectionTitle";
+import { Button } from "./Styles/Button.style";
+import { SectionTitle } from "./Styles/SectionTitle.style";
 import styled from "styled-components";
 
 export default class EducationSection extends React.Component {

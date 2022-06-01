@@ -1,8 +1,8 @@
 import React from "react";
 import format from "date-fns/format";
-import { Button } from "./Styles/Button";
-import { Input } from "./Styles/Input";
-import { Form } from "./Styles/Form";
+import { Button } from "./Styles/Button.style";
+import { Input } from "./Styles/Input.style";
+import { Form } from "./Styles/Form.style";
 import styled from "styled-components";
 
 export default class EducationItem extends React.Component {

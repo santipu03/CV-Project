@@ -1,6 +1,6 @@
 import React from "react";
-import { Form } from "./Styles/Form";
-import { Input, Textarea } from "./Styles/Input";
+import { Form } from "./Styles/Form.style";
+import { Input, Textarea } from "./Styles/Input.style";
 import styled from 'styled-components'
 
 export default class GeneralSection extends React.Component {
