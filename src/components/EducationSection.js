@@ -1,90 +1,80 @@
-import React from 'react'
+import React, { useState } from 'react'
 import EducationItem from './EducationItem'
 import uniqid from 'uniqid'
 import { Button } from './Styles/Button.style'
 import { SectionTitle } from './Styles/SectionTitle.style'
 import styled from 'styled-components'
 
-export default class EducationSection extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      education: []
-    }
+export default function EducationSection (props) {
+  const [itemsArray, setItemsArray] = useState([])
+
+  const handleAddEducation = () => {
+    setItemsArray(prevState => ([
+      ...prevState, {
+        id: uniqid(),
+        schoolName: '',
+        degree: '',
+        firstDayDegree: '',
+        lastDayDegree: ''
+      }
+    ]))
   }
 
-  handleAddEducation () {
-    this.setState((prevState) => ({
-      education: [
-        ...prevState.education,
-        {
-          id: uniqid(),
-          schoolName: '',
-          degree: '',
-          firstDayDegree: '',
-          lastDayDegree: ''
-        }
-      ]
-    }))
+  const handleDeleteEducation = (id) => {
+    setItemsArray(prevState => ([
+      ...prevState.filter((item) => item.id !== id)
+    ]))
   }
 
-  handleDeleteEducation (id) {
-    this.setState((prevState) => ({
-      education: prevState.education.filter((item) => item.id !== id)
-    }))
-  }
-
-  handleInputChange (e, id) {
-    this.setState((prevState) => {
-      const newArray = prevState.education.map((item) => {
+  const handleInputChange = (e, id) => {
+    setItemsArray(prevState => {
+      const newArray = prevState.map(item => {
         if (item.id === id) {
           return { ...item, [e.target.id]: e.target.value }
         }
         return item
       })
-      return { ...prevState, education: [...newArray] }
+      return newArray
     })
   }
 
-  render () {
-    const educationItems = this.state.education.map((item) => (
-      <EducationItem
-        key={item.id}
-        id={item.id}
-        schoolName={item.schoolName}
-        degree={item.degree}
-        firstDayDegree={item.firstDayDegree}
-        lastDayDegree={item.lastDayDegree}
-        isSubmitted={this.props.isSubmitted}
-        onInputChange={this.handleInputChange.bind(this)}
-        onDeleteItem={this.handleDeleteEducation.bind(this)}
-      />
-    ))
+  const educationItems = itemsArray.map((item) => (
+    <EducationItem
+      key={item.id}
+      id={item.id}
+      schoolName={item.schoolName}
+      degree={item.degree}
+      firstDayDegree={item.firstDayDegree}
+      lastDayDegree={item.lastDayDegree}
+      isSubmitted={props.isSubmitted}
+      onInputChange={handleInputChange}
+      onDeleteItem={handleDeleteEducation}
+    />
+  ))
 
-    if (!this.props.isSubmitted) {
-      return (
-        <section>
-          <SectionTitle>Education</SectionTitle>
-          {educationItems}
-          <ButtonWrapper>
-            <Button
-              type="button"
-              onClick={this.handleAddEducation.bind(this)}
-              bgColor="add"
-            >
-              Add
-            </Button>
-          </ButtonWrapper>
-        </section>
-      )
-    } else {
-      return (
-        <section>
-          <SectionTitle>Education</SectionTitle>
-          {educationItems}
-        </section>
-      )
-    }
+  if (!props.isSubmitted) {
+    return (
+      <section>
+        <SectionTitle>Education</SectionTitle>
+        {educationItems}
+        <ButtonWrapper>
+          <Button
+            type="button"
+            onClick={handleAddEducation}
+            bgColor="add"
+          >
+            Add
+          </Button>
+        </ButtonWrapper>
+      </section>
+    )
+  } else {
+    return (
+      <section>
+        <SectionTitle>Education</SectionTitle>
+        {educationItems}
+      </section>
+    )
   }
 }
 
