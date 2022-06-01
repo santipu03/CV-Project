@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const MainContainer = styled.main`
   min-height: calc(100vh - 120px);
-  background-color: #ccc;
+  background-color: ${({ theme }) => theme.colors.bgMain};
   padding: 40px;
   display: flex;
   justify-content: center;

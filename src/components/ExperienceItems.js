@@ -54,8 +54,7 @@ export default class ExperienceItems extends React.Component {
             <Button 
               type="button" 
               onClick={() => this.props.onDeleteItem(this.props.id)}
-              color='#fca5a5'
-              backgroundColor='#f87171'
+              bgColor='delete'
             >Delete
             </Button>
           </ButtonWrapper>
@@ -104,7 +103,7 @@ const SubmittedItemWrapper = styled.div`
   margin: 10px 40px;
   display: flex;
   justify-content: space-between;
-  border: 1px solid #000;
+  border: 1px solid ${({ theme }) => theme.colors.black};
 
   @media (max-width: 550px) {
     margin: 10px 15px;

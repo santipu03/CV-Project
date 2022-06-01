@@ -67,8 +67,7 @@ export default class EducationSection extends React.Component {
             <Button 
               type="button" 
               onClick={this.handleAddEducation.bind(this)}
-              color='#93c5fd'
-              backgroundColor='#60a5fa'>
+              bgColor='add'>
             Add</Button>
           </ButtonWrapper>
         </section>

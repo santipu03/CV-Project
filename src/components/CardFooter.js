@@ -10,8 +10,7 @@ export default class CardFooter extends React.Component {
           <Button 
             type="button" 
             onClick={this.props.onSubmitBtn}
-            color='#fdba74'
-            backgroundColor='#fb923c'
+            bgColor='edit'
           >Edit</Button>
         </ButtonWrapper>
       )
@@ -21,8 +20,7 @@ export default class CardFooter extends React.Component {
           <Button 
             type="button" 
             onClick={this.props.onSubmitBtn}
-            color='#86efac'
-            backgroundColor='#4ade80'
+            bgColor='submit'
           >Submit
           </Button>     
         </ButtonWrapper>
@@ -37,5 +35,5 @@ const ButtonWrapper = styled.div`
   justify-content: center;
   padding: 30px;
   margin-top: 30px;
-  border-top: 1px solid #000;
+  border-top: 1px solid ${({ theme }) => theme.colors.black};
 `

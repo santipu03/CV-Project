@@ -1,19 +1,18 @@
-import './App.css'
 import Main from './components/Main';
 import { Header } from './components/Styles/Header.style';
 import { Footer } from './components/Styles/Footer.style';
+import GlobalStyles from './components/Styles/Global';
+import { ThemeProvider } from 'styled-components';
+import Theme from './components/Styles/Theme';
 
 function App() {
   return (
-    <>
-      <Header>
-        CV App
-      </Header>
+    <ThemeProvider theme={Theme}>
+      <GlobalStyles />
+      <Header> CV App </Header>
       <Main />
-      <Footer>
-        Made in BCN by santipu_
-      </Footer>
-    </>
+      <Footer> Made in BCN by santipu_ </Footer>
+    </ThemeProvider>
   );
 }
 

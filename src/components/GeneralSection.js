@@ -154,7 +154,7 @@ const EmailPhoneWrapper = styled.div`
 
   & .email, & .phoneNumber {
     padding-bottom: 5px;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid ${({ theme }) => theme.colors.black};
     font-size: 0.8rem;
   }
 `

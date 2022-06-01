@@ -5,7 +5,7 @@ export const SectionTitle = styled.div`
   text-align: center;
   padding: 20px 0;
   margin-top: 40px;
-  border-top: 1px solid #000;
+  border-top: 1px solid ${({ theme }) => theme.colors.black};
 
   @media (max-width: 600px) {
     font-size: 1.3rem;
