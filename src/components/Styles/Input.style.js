@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Input = styled.input`
   padding: 5px;
@@ -6,7 +6,6 @@ export const Input = styled.input`
   border: 1px solid ${({ theme }) => theme.colors.headerFooter};
   outline: none;
   width: 90%;
-
 `
 
 export const Textarea = styled.textarea`

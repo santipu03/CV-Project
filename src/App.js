@@ -1,11 +1,12 @@
-import Main from './components/Main';
-import { Header } from './components/Styles/Header.style';
-import { Footer } from './components/Styles/Footer.style';
-import GlobalStyles from './components/Styles/Global';
-import { ThemeProvider } from 'styled-components';
-import Theme from './components/Styles/Theme';
+import React from 'react'
+import Main from './components/Main'
+import { Header } from './components/Styles/Header.style'
+import { Footer } from './components/Styles/Footer.style'
+import GlobalStyles from './components/Styles/Global'
+import { ThemeProvider } from 'styled-components'
+import Theme from './components/Styles/Theme'
 
-function App() {
+function App () {
   return (
     <ThemeProvider theme={Theme}>
       <GlobalStyles />
@@ -13,7 +14,7 @@ function App() {
       <Main />
       <Footer> Made in BCN by santipu_ </Footer>
     </ThemeProvider>
-  );
+  )
 }
 
-export default App;
+export default App

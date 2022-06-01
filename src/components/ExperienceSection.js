@@ -1,10 +1,9 @@
-import React from "react";
-import ExperienceItems from "./ExperienceItems";
+import React from 'react'
+import ExperienceItems from './ExperienceItems'
 import uniqid from 'uniqid'
-import { Button } from "./Styles/Button.style";
-import { SectionTitle } from "./Styles/SectionTitle.style";
-import styled from "styled-components";
-
+import { Button } from './Styles/Button.style'
+import { SectionTitle } from './Styles/SectionTitle.style'
+import styled from 'styled-components'
 
 export default class ExperienceSection extends React.Component {
   constructor (props) {
@@ -15,38 +14,41 @@ export default class ExperienceSection extends React.Component {
   }
 
   handleAddExperience () {
-    this.setState(previousState => ({
-      experience: [...previousState.experience, {
-        id: uniqid(),
-        companyName: '',
-        companyPosition: '',
-        firstDayJob: '',
-        lastDayJob: ''
-      }]
+    this.setState((previousState) => ({
+      experience: [
+        ...previousState.experience,
+        {
+          id: uniqid(),
+          companyName: '',
+          companyPosition: '',
+          firstDayJob: '',
+          lastDayJob: ''
+        }
+      ]
     }))
   }
 
   handleDeleteExperience (id) {
-    this.setState(previousState => ({
-      experience: previousState.experience.filter(item => item.id !== id)
+    this.setState((previousState) => ({
+      experience: previousState.experience.filter((item) => item.id !== id)
     }))
   }
 
   handleInputChange (e, id) {
-    this.setState(prevState => {
-      const newArray = prevState.experience.map(item => {
+    this.setState((prevState) => {
+      const newArray = prevState.experience.map((item) => {
         if (item.id === id) {
-          return {...item, [e.target.id]: e.target.value}
+          return { ...item, [e.target.id]: e.target.value }
         }
         return item
       })
-      return {...prevState, experience: [...newArray]}
+      return { ...prevState, experience: [...newArray] }
     })
   }
 
   render () {
-    const experienceItems = this.state.experience.map(item => (
-      <ExperienceItems 
+    const experienceItems = this.state.experience.map((item) => (
+      <ExperienceItems
         key={item.id}
         id={item.id}
         companyName={item.companyName}
@@ -63,22 +65,23 @@ export default class ExperienceSection extends React.Component {
       return (
         <section>
           <SectionTitle>Experience</SectionTitle>
-            {experienceItems}
+          {experienceItems}
           <ButtonWrapper>
-            <Button 
-              type="button" 
+            <Button
+              type="button"
               onClick={this.handleAddExperience.bind(this)}
-              bgColor='add'>
-            Add</Button>
+              bgColor="add"
+            >
+              Add
+            </Button>
           </ButtonWrapper>
-  
         </section>
       )
     } else {
       return (
         <section>
           <SectionTitle>Experience</SectionTitle>
-            {experienceItems}
+          {experienceItems}
         </section>
       )
     }

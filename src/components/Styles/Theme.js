@@ -12,9 +12,8 @@ const Theme = {
     darkBgSubmitBtn: '#4ade80',
     darkBgEditBtn: '#fb923c',
     darkBgAddBtn: '#60a5fa',
-    darkBgDeleteBtn: '#f87171',
+    darkBgDeleteBtn: '#f87171'
   }
 }
-
 
 export default Theme

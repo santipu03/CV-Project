@@ -1,9 +1,9 @@
-import React from "react";
-import EducationItem from "./EducationItem";
+import React from 'react'
+import EducationItem from './EducationItem'
 import uniqid from 'uniqid'
-import { Button } from "./Styles/Button.style";
-import { SectionTitle } from "./Styles/SectionTitle.style";
-import styled from "styled-components";
+import { Button } from './Styles/Button.style'
+import { SectionTitle } from './Styles/SectionTitle.style'
+import styled from 'styled-components'
 
 export default class EducationSection extends React.Component {
   constructor (props) {
@@ -14,37 +14,40 @@ export default class EducationSection extends React.Component {
   }
 
   handleAddEducation () {
-    this.setState(prevState => ({
-      education: [...prevState.education, {
-        id: uniqid(),
-        schoolName: '',
-        degree: '',
-        firstDayDegree: '',
-        lastDayDegree: ''
-      }]
+    this.setState((prevState) => ({
+      education: [
+        ...prevState.education,
+        {
+          id: uniqid(),
+          schoolName: '',
+          degree: '',
+          firstDayDegree: '',
+          lastDayDegree: ''
+        }
+      ]
     }))
   }
 
   handleDeleteEducation (id) {
-    this.setState(prevState => ({
-      education: prevState.education.filter(item => item.id !== id)
+    this.setState((prevState) => ({
+      education: prevState.education.filter((item) => item.id !== id)
     }))
   }
 
   handleInputChange (e, id) {
-    this.setState(prevState => {
-      const newArray = prevState.education.map(item => {
+    this.setState((prevState) => {
+      const newArray = prevState.education.map((item) => {
         if (item.id === id) {
-          return {...item, [e.target.id]: e.target.value}
+          return { ...item, [e.target.id]: e.target.value }
         }
         return item
       })
-      return {...prevState, education: [...newArray]}
+      return { ...prevState, education: [...newArray] }
     })
   }
 
   render () {
-    const educationItems = this.state.education.map(item => (
+    const educationItems = this.state.education.map((item) => (
       <EducationItem
         key={item.id}
         id={item.id}
@@ -58,17 +61,19 @@ export default class EducationSection extends React.Component {
       />
     ))
 
-    if (!this.props.isSubmitted){
+    if (!this.props.isSubmitted) {
       return (
         <section>
           <SectionTitle>Education</SectionTitle>
           {educationItems}
           <ButtonWrapper>
-            <Button 
-              type="button" 
+            <Button
+              type="button"
               onClick={this.handleAddEducation.bind(this)}
-              bgColor='add'>
-            Add</Button>
+              bgColor="add"
+            >
+              Add
+            </Button>
           </ButtonWrapper>
         </section>
       )

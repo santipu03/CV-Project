@@ -1,6 +1,6 @@
-import React from "react";
-import { Form } from "./Styles/Form.style";
-import { Input, Textarea } from "./Styles/Input.style";
+import React from 'react'
+import { Form } from './Styles/Form.style'
+import { Input, Textarea } from './Styles/Input.style'
 import styled from 'styled-components'
 
 export default class GeneralSection extends React.Component {
@@ -23,60 +23,60 @@ export default class GeneralSection extends React.Component {
   }
 
   render () {
-    if (!this.props.isSubmitted){
+    if (!this.props.isSubmitted) {
       return (
         <section>
           <FirstSectionTitle>General Information</FirstSectionTitle>
           <Form>
             <div>
               <label htmlFor="firstName">First Name</label>
-              <Input 
+              <Input
                 type="text"
-                placeholder="Adam" 
-                id="firstName" 
+                placeholder="Adam"
+                id="firstName"
                 value={this.state.firstName}
-                onChange={this.handleChangeInput.bind(this)}>
-              </Input>
+                onChange={this.handleChangeInput.bind(this)}
+              ></Input>
             </div>
             <div>
               <label htmlFor="lastName">Last Name</label>
-              <Input 
-                type={"text"} 
-                placeholder="Smith" 
+              <Input
+                type={'text'}
+                placeholder="Smith"
                 id="lastName"
                 value={this.state.lastName}
-                onChange={this.handleChangeInput.bind(this)}>
-              </Input>
+                onChange={this.handleChangeInput.bind(this)}
+              ></Input>
             </div>
             <div>
               <label htmlFor="email">Email</label>
-              <Input 
-                type={"email"} 
-                placeholder="adamsmith@gmail.com" 
+              <Input
+                type={'email'}
+                placeholder="adamsmith@gmail.com"
                 id="email"
                 value={this.state.email}
-                onChange={this.handleChangeInput.bind(this)}>
-              </Input>
+                onChange={this.handleChangeInput.bind(this)}
+              ></Input>
             </div>
             <div>
               <label htmlFor="phoneNumber">Phone Number</label>
-              <Input 
-                type={"number"} 
-                placeholder="686354264" 
+              <Input
+                type={'number'}
+                placeholder="686354264"
                 id="phoneNumber"
                 value={this.state.phoneNumber}
-                onChange={this.handleChangeInput.bind(this)}>
-              </Input>
+                onChange={this.handleChangeInput.bind(this)}
+              ></Input>
             </div>
             <TextAreaWrapper>
               <label htmlFor="description">Brief Description</label>
-              <Textarea 
-                placeholder="I am a talented, ambitious and hardworking individual, with broad skills and experience in digital and printed marketing." 
-                name="description" 
+              <Textarea
+                placeholder="I am a talented, ambitious and hardworking individual, with broad skills and experience in digital and printed marketing."
+                name="description"
                 id="description"
                 value={this.state.description}
-                onChange={this.handleChangeInput.bind(this)}>
-                </Textarea>
+                onChange={this.handleChangeInput.bind(this)}
+              ></Textarea>
             </TextAreaWrapper>
           </Form>
         </section>
@@ -84,9 +84,13 @@ export default class GeneralSection extends React.Component {
     } else {
       return (
         <section>
-          <FirstSectionTitle>{this.state.firstName} {this.state.lastName}</FirstSectionTitle>
+          <FirstSectionTitle>
+            {this.state.firstName} {this.state.lastName}
+          </FirstSectionTitle>
           <article>
-            <DescriptionWrapper>"{this.state.description}"</DescriptionWrapper>
+            <DescriptionWrapper>
+              &quot;{this.state.description}&quot;
+            </DescriptionWrapper>
             <EmailPhoneWrapper>
               <div>
                 <div className="email">Email</div>
@@ -97,12 +101,10 @@ export default class GeneralSection extends React.Component {
                 <div>{this.state.phoneNumber}</div>
               </div>
             </EmailPhoneWrapper>
-            
           </article>
         </section>
       )
     }
-    
   }
 }
 
@@ -137,12 +139,11 @@ const EmailPhoneWrapper = styled.div`
   gap: 100px;
   margin-top: 30px;
 
-
   @media (max-width: 800px) {
-    gap: 50px
+    gap: 50px;
   }
   @media (max-width: 500px) {
-    gap: 20px
+    gap: 20px;
   }
 
   & > div {
@@ -152,7 +153,8 @@ const EmailPhoneWrapper = styled.div`
     gap: 10px;
   }
 
-  & .email, & .phoneNumber {
+  & .email,
+  & .phoneNumber {
     padding-bottom: 5px;
     border-bottom: 1px solid ${({ theme }) => theme.colors.black};
     font-size: 0.8rem;

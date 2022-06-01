@@ -1,91 +1,103 @@
-import React from "react";
-import format from "date-fns/format";
-import { Button } from "./Styles/Button.style";
-import { Input } from "./Styles/Input.style";
-import { Form } from "./Styles/Form.style";
-import styled from "styled-components";
+import React from 'react'
+import format from 'date-fns/format'
+import { Button } from './Styles/Button.style'
+import { Input } from './Styles/Input.style'
+import { Form } from './Styles/Form.style'
+import styled from 'styled-components'
 
 export default class EducationItem extends React.Component {
   render () {
-    if (!this.props.isSubmitted){
+    if (!this.props.isSubmitted) {
       return (
         <>
           <Form>
             <div>
               <label htmlFor="schoolName">School Name</label>
-              <Input 
-                type={"text"} 
-                placeholder="Yale University" 
+              <Input
+                type={'text'}
+                placeholder="Yale University"
                 id="schoolName"
                 value={this.props.schoolName}
-                onChange={(e) => this.props.onInputChange(e,this.props.id)}>
-              </Input>
+                onChange={(e) => this.props.onInputChange(e, this.props.id)}
+              ></Input>
             </div>
             <div>
               <label htmlFor="degree">Position Title</label>
-              <Input 
-                type={"text"} 
-                placeholder="Software Engineering" 
+              <Input
+                type={'text'}
+                placeholder="Software Engineering"
                 id="degree"
                 value={this.props.degree}
-                onChange={(e) => this.props.onInputChange(e,this.props.id)}>  
-              </Input>
+                onChange={(e) => this.props.onInputChange(e, this.props.id)}
+              ></Input>
             </div>
             <div>
               <label htmlFor="firstDayDegree">From:</label>
-              <Input 
-                type={"month"} 
+              <Input
+                type={'month'}
                 id="firstDayDegree"
                 value={this.props.firstDayDegree}
-                onChange={(e) => this.props.onInputChange(e,this.props.id)}>
-              </Input>
+                onChange={(e) => this.props.onInputChange(e, this.props.id)}
+              ></Input>
             </div>
             <div>
               <label htmlFor="lastDayDegree">To:</label>
-              <Input 
-                type={"month"} 
+              <Input
+                type={'month'}
                 id="lastDayDegree"
                 value={this.props.lastDayDegree}
-                onChange={(e) => this.props.onInputChange(e,this.props.id)}>
-              </Input>
+                onChange={(e) => this.props.onInputChange(e, this.props.id)}
+              ></Input>
             </div>
           </Form>
           <ButtonWrapper>
-            <Button 
-              type="button" 
+            <Button
+              type="button"
               onClick={() => this.props.onDeleteItem(this.props.id)}
-              bgColor='delete'
-            >Delete</Button>
+              bgColor="delete"
+            >
+              Delete
+            </Button>
           </ButtonWrapper>
         </>
       )
-    } else if (this.props.isSubmitted && this.props.firstDayDegree && this.props.lastDayDegree) {
-      return(
+    } else if (
+      this.props.isSubmitted &&
+      this.props.firstDayDegree &&
+      this.props.lastDayDegree
+    ) {
+      return (
         <SubmittedItemWrapper>
-          <div><strong>
-            {format(new Date(this.props.firstDayDegree), 'MMM yyyy')} -&nbsp;
-            {format(new Date(this.props.lastDayDegree), 'MMM yyyy')}
-          </strong></div>
+          <div>
+            <strong>
+              {format(new Date(this.props.firstDayDegree), 'MMM yyyy')} -&nbsp;
+              {format(new Date(this.props.lastDayDegree), 'MMM yyyy')}
+            </strong>
+          </div>
           <AlignedRightWrapper>
-            <div><strong>{this.props.degree}</strong></div>
+            <div>
+              <strong>{this.props.degree}</strong>
+            </div>
             <div>{this.props.schoolName}</div>
           </AlignedRightWrapper>
         </SubmittedItemWrapper>
       )
     } else {
-      return(
+      return (
         <SubmittedItemWrapper>
-          <div><strong>
-            Date -&nbsp; Date
-          </strong></div>
+          <div>
+            <strong>Date -&nbsp; Date</strong>
+          </div>
           <AlignedRightWrapper>
-            <div><strong>{this.props.degree}</strong></div>
+            <div>
+              <strong>{this.props.degree}</strong>
+            </div>
             <div>{this.props.schoolName}</div>
           </AlignedRightWrapper>
         </SubmittedItemWrapper>
       )
     }
-  } 
+  }
 }
 
 const ButtonWrapper = styled.div`
