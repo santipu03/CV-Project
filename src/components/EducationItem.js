@@ -5,98 +5,96 @@ import { Input } from './Styles/Input.style'
 import { Form } from './Styles/Form.style'
 import styled from 'styled-components'
 
-export default class EducationItem extends React.Component {
-  render () {
-    if (!this.props.isSubmitted) {
-      return (
-        <>
-          <Form>
-            <div>
-              <label htmlFor="schoolName">School Name</label>
-              <Input
-                type={'text'}
-                placeholder="Yale University"
-                id="schoolName"
-                value={this.props.schoolName}
-                onChange={(e) => this.props.onInputChange(e, this.props.id)}
-              ></Input>
-            </div>
-            <div>
-              <label htmlFor="degree">Position Title</label>
-              <Input
-                type={'text'}
-                placeholder="Software Engineering"
-                id="degree"
-                value={this.props.degree}
-                onChange={(e) => this.props.onInputChange(e, this.props.id)}
-              ></Input>
-            </div>
-            <div>
-              <label htmlFor="firstDayDegree">From:</label>
-              <Input
-                type={'month'}
-                id="firstDayDegree"
-                value={this.props.firstDayDegree}
-                onChange={(e) => this.props.onInputChange(e, this.props.id)}
-              ></Input>
-            </div>
-            <div>
-              <label htmlFor="lastDayDegree">To:</label>
-              <Input
-                type={'month'}
-                id="lastDayDegree"
-                value={this.props.lastDayDegree}
-                onChange={(e) => this.props.onInputChange(e, this.props.id)}
-              ></Input>
-            </div>
-          </Form>
-          <ButtonWrapper>
-            <Button
-              type="button"
-              onClick={() => this.props.onDeleteItem(this.props.id)}
-              bgColor="delete"
-            >
-              Delete
-            </Button>
-          </ButtonWrapper>
-        </>
-      )
-    } else if (
-      this.props.isSubmitted &&
-      this.props.firstDayDegree &&
-      this.props.lastDayDegree
-    ) {
-      return (
-        <SubmittedItemWrapper>
+export default function EducationItem (props) {
+  if (!props.isSubmitted) {
+    return (
+      <>
+        <Form>
           <div>
-            <strong>
-              {format(new Date(this.props.firstDayDegree), 'MMM yyyy')} -&nbsp;
-              {format(new Date(this.props.lastDayDegree), 'MMM yyyy')}
-            </strong>
+            <label htmlFor="schoolName">School Name</label>
+            <Input
+              type={'text'}
+              placeholder="Yale University"
+              id="schoolName"
+              value={props.schoolName}
+              onChange={(e) => props.onInputChange(e, props.id)}
+            ></Input>
           </div>
-          <AlignedRightWrapper>
-            <div>
-              <strong>{this.props.degree}</strong>
-            </div>
-            <div>{this.props.schoolName}</div>
-          </AlignedRightWrapper>
-        </SubmittedItemWrapper>
-      )
-    } else {
-      return (
-        <SubmittedItemWrapper>
           <div>
-            <strong>Date -&nbsp; Date</strong>
+            <label htmlFor="degree">Position Title</label>
+            <Input
+              type={'text'}
+              placeholder="Software Engineering"
+              id="degree"
+              value={props.degree}
+              onChange={(e) => props.onInputChange(e, props.id)}
+            ></Input>
           </div>
-          <AlignedRightWrapper>
-            <div>
-              <strong>{this.props.degree}</strong>
-            </div>
-            <div>{this.props.schoolName}</div>
-          </AlignedRightWrapper>
-        </SubmittedItemWrapper>
-      )
-    }
+          <div>
+            <label htmlFor="firstDayDegree">From:</label>
+            <Input
+              type={'month'}
+              id="firstDayDegree"
+              value={props.firstDayDegree}
+              onChange={(e) => props.onInputChange(e, props.id)}
+            ></Input>
+          </div>
+          <div>
+            <label htmlFor="lastDayDegree">To:</label>
+            <Input
+              type={'month'}
+              id="lastDayDegree"
+              value={props.lastDayDegree}
+              onChange={(e) => props.onInputChange(e, props.id)}
+            ></Input>
+          </div>
+        </Form>
+        <ButtonWrapper>
+          <Button
+            type="button"
+            onClick={() => props.onDeleteItem(props.id)}
+            bgColor="delete"
+          >
+            Delete
+          </Button>
+        </ButtonWrapper>
+      </>
+    )
+  } else if (
+    props.isSubmitted &&
+    props.firstDayDegree &&
+    props.lastDayDegree
+  ) {
+    return (
+      <SubmittedItemWrapper>
+        <div>
+          <strong>
+            {format(new Date(props.firstDayDegree), 'MMM yyyy')} -&nbsp;
+            {format(new Date(props.lastDayDegree), 'MMM yyyy')}
+          </strong>
+        </div>
+        <AlignedRightWrapper>
+          <div>
+            <strong>{props.degree}</strong>
+          </div>
+          <div>{props.schoolName}</div>
+        </AlignedRightWrapper>
+      </SubmittedItemWrapper>
+    )
+  } else {
+    return (
+      <SubmittedItemWrapper>
+        <div>
+          <strong>Date -&nbsp; Date</strong>
+        </div>
+        <AlignedRightWrapper>
+          <div>
+            <strong>{props.degree}</strong>
+          </div>
+          <div>{props.schoolName}</div>
+        </AlignedRightWrapper>
+      </SubmittedItemWrapper>
+    )
   }
 }
 
