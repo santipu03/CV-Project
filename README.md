@@ -8,5 +8,5 @@ My first React App.
 ## Built with:
  - React
  - Date-fns
- - Uniqid
+ - Uniqid 
  - Styled Components
