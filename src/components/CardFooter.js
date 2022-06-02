@@ -14,11 +14,7 @@ export default function CardFooter (props) {
   } else {
     return (
       <ButtonWrapper>
-        <Button
-          type="button"
-          onClick={props.onSubmitBtn}
-          bgColor="submit"
-        >
+        <Button type="button" onClick={props.onSubmitBtn} bgColor="submit">
           Submit
         </Button>
       </ButtonWrapper>

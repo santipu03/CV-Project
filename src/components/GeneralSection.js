@@ -13,7 +13,7 @@ export default function GeneralSection (props) {
   })
 
   const handleChangeInput = (e) => {
-    setGeneralData(prevState => ({
+    setGeneralData((prevState) => ({
       ...prevState,
       [e.target.id]: e.target.value
     }))

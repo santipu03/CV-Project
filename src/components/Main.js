@@ -19,10 +19,7 @@ export default function Main (props) {
         <GeneralSection isSubmitted={isSubmitted} />
         <ExperienceSection isSubmitted={isSubmitted} />
         <EducationSection isSubmitted={isSubmitted} />
-        <CardFooter
-          onSubmitBtn={handleSubmit}
-          isSubmitted={isSubmitted}
-        />
+        <CardFooter onSubmitBtn={handleSubmit} isSubmitted={isSubmitted} />
       </Card>
     </MainContainer>
   )

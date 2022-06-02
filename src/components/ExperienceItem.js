@@ -60,11 +60,7 @@ export default function ExperienceItem (props) {
         </ButtonWrapper>
       </>
     )
-  } else if (
-    props.isSubmitted &&
-    props.firstDayJob &&
-    props.lastDayJob
-  ) {
+  } else if (props.isSubmitted && props.firstDayJob && props.lastDayJob) {
     // The date prop has to have some value so date-fns library don't throw errors
     return (
       <SubmittedItemWrapper>

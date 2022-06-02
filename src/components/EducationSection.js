@@ -9,26 +9,27 @@ export default function EducationSection (props) {
   const [itemsArray, setItemsArray] = useState([])
 
   const handleAddEducation = () => {
-    setItemsArray(prevState => ([
-      ...prevState, {
+    setItemsArray((prevState) => [
+      ...prevState,
+      {
         id: uniqid(),
         schoolName: '',
         degree: '',
         firstDayDegree: '',
         lastDayDegree: ''
       }
-    ]))
+    ])
   }
 
   const handleDeleteEducation = (id) => {
-    setItemsArray(prevState => ([
+    setItemsArray((prevState) => [
       ...prevState.filter((item) => item.id !== id)
-    ]))
+    ])
   }
 
   const handleInputChange = (e, id) => {
-    setItemsArray(prevState => {
-      const newArray = prevState.map(item => {
+    setItemsArray((prevState) => {
+      const newArray = prevState.map((item) => {
         if (item.id === id) {
           return { ...item, [e.target.id]: e.target.value }
         }
@@ -58,11 +59,7 @@ export default function EducationSection (props) {
         <SectionTitle>Education</SectionTitle>
         {educationItems}
         <ButtonWrapper>
-          <Button
-            type="button"
-            onClick={handleAddEducation}
-            bgColor="add"
-          >
+          <Button type="button" onClick={handleAddEducation} bgColor="add">
             Add
           </Button>
         </ButtonWrapper>

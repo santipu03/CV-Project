@@ -60,11 +60,7 @@ export default function EducationItem (props) {
         </ButtonWrapper>
       </>
     )
-  } else if (
-    props.isSubmitted &&
-    props.firstDayDegree &&
-    props.lastDayDegree
-  ) {
+  } else if (props.isSubmitted && props.firstDayDegree && props.lastDayDegree) {
     return (
       <SubmittedItemWrapper>
         <div>
